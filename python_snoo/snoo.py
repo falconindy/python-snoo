@@ -232,11 +232,11 @@ class Snoo:
 
         await self.send_command("go_to_state", device, **{"state": level.value, "hold": hold})
 
-    async def set_sticky_white_noise(self, device: SnooDevice, on: bool):
+    async def set_sticky_white_noise(self, device: SnooDevice, on: bool, timeout_min: int = 15):
         await self.send_command(
             "set_sticky_white_noise",
             device,
-            **{"state": "on" if on else "off", "timeout_min": 15},
+            **{"state": "on" if on else "off", "timeout_min": timeout_min},
         )
 
     async def get_status(self, device: SnooDevice):
